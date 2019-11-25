@@ -1,7 +1,7 @@
 
 #install these packages if you haven't already
 # devtools::install_github("nacnudus/tidyxl")
-# install.packages(c("xlsx","stringr","purrr"))
+# install.packages(c("xlsx","stringr","purrr","gdata"))
 
 library(tidyxl)
 library(xlsx)
@@ -29,7 +29,7 @@ dir_list<-list.files("./Data",full.names = TRUE)
 dir_name<-stringr::str_remove(list.files("./Data"),".WP1")
 
 #do this for all files in the directory
-map2(dir_list,dir_name,~format_excel(.x,.y))
+map2(dir_list,dir_name,~format_fixed_width(.x,.y))
 
 
 
