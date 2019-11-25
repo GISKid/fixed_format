@@ -1,12 +1,12 @@
 
 #install these packages if you haven't already
 # devtools::install_github("nacnudus/tidyxl")
-# install.packages(c("xlsx","stringr","purrr","gdata"))
+# install.packages(c(stringr","purrr","gdata","dplyr"))
 
 library(tidyxl)
-library(xlsx)
 library(stringr)
 library(purrr)
+library(dplyr)
 #Source the format function
 source("format_func.R")
 

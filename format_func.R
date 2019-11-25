@@ -35,11 +35,17 @@ format_fixed_width<-function (input_file,file_name){
   # right_just<-read.xlsx(save_path,sheetIndex = 1)
   #create empty rows
   emp_rows<- read_txt[1:2,]
+  row_13<-read_txt[1,]
+  row_13[1,]<-NA
   emp_rows[1:2,]<-NA
   
   #insert file name into first row and first column
   emp_rows[1,1]=file_name
   emp_rows<-dplyr::bind_rows(emp_rows,right_just)
-  write.fwf(as.matrix(emp_rows),file=paste0("./Output/",file_name,".WP1"),justify="right",sep="\t",width=rep(6,13),colnames=FALSE)
+  row_1_12<-emp_rows %>%slice(1:12)%>%bind_rows(row_13)
+  rows_13_16<-emp_rows %>%slice(13:16)
+  df<-bind_rows(row_1_12,rows_13_16)
+  
+  write.fwf(as.matrix(df),file=paste0("./Output/",file_name,".WP1"),justify="right",sep="\t",width=rep(6,13),colnames=FALSE)
   
 }
