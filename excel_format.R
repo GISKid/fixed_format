@@ -1,4 +1,8 @@
-devtools::install_github("nacnudus/tidyxl")
+
+#install these packages if you haven't already
+# devtools::install_github("nacnudus/tidyxl")
+# install.packages(c("xlsx","stringr","purrr"))
+
 library(tidyxl)
 library(xlsx)
 library(stringr)
